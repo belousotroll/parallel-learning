@@ -12,11 +12,11 @@ void print_array(char, long double *, std::size_t);
 int main()
 {
     std::int32_t x;
-    std::cout << "\nEnter x: ";
+    std::cout << "Enter x: ";
     std::cin >> x;
 
     std::int32_t n;
-    std::cout << "\nEnter n: ";
+    std::cout << "Enter n: ";
     std::cin >> n;
 
     serial_function(x, n);
