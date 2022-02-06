@@ -31,5 +31,10 @@ if(LAB_5)
     add_subdirectory(laboratory_work_5)
 endif()
 
+if(LAB_6)
+    add_subdirectory(laboratory_work_6)
+endif()
+
+
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 message(STATUS "C++ Standard: ${CMAKE_CXX_STANDARD}")
