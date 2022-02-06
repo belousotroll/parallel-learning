@@ -1,4 +1,4 @@
-project(laboratory_work_4)
+project(OpenMP)
 
 find_package(OpenMP REQUIRED)
 if(OPENMP_FOUND)
@@ -7,6 +7,7 @@ if(OPENMP_FOUND)
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS} -O2")
 endif()
 
-add_executable(${PROJECT_NAME} main.cpp)
-
-target_link_libraries(${PROJECT_NAME} PRIVATE OpenMP::OpenMP_CXX)
+add_subdirectory(laboratory_work_1)
+add_subdirectory(laboratory_work_2)
+add_subdirectory(laboratory_work_3)
+add_subdirectory(laboratory_work_4)

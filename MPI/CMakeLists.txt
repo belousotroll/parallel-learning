@@ -1,4 +1,4 @@
-project(laboratory_work_5)
+project(MPI)
 
 find_package(MPI REQUIRED)
 if(MPI_FOUND)
@@ -6,6 +6,5 @@ if(MPI_FOUND)
     set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${MPI_CXX_FLAGS}")
 endif()
 
-add_executable(${PROJECT_NAME} main.cpp)
-
-target_link_libraries(${PROJECT_NAME} PRIVATE MPI::MPI_CXX)
+add_subdirectory(laboratory_work_5)
+add_subdirectory(laboratory_work_6)
