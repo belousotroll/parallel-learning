@@ -1,10 +1,6 @@
-cmake_minimum_required(VERSION 3.0)
-project(parallel_6_10)
-
-set(CMAKE_CXX_STANDARD 11)
+message(STATUS "Current project: laboratory_work_6")
 
 find_package(MPI REQUIRED)
-
 if(MPI_FOUND)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${MPI_C_FLAGS}")
     set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${MPI_CXX_FLAGS}")
