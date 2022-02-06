@@ -80,10 +80,8 @@ void parallel_function(int x, int n)
     a[0] = 1.0 / x;
 #pragma omp parallel default(none) shared(a, x, n)
     {
-        const auto num_threads = omp_get_num_threads(); // number of threads
-        const auto thread_num = omp_get_thread_num();   // number of current thread
-
-        for (auto i = (1 + thread_num); i < n; i += num_threads) {
+#pragma omp for schedule(static)
+        for (auto i = 1; i < n; i++) {
             a[i] = std::sin(x * i);
         }
     }
@@ -91,30 +89,24 @@ void parallel_function(int x, int n)
     b[0] = 1.0 / x;
 #pragma omp parallel default(none) shared(a, b, x, n)
     {
-        const auto num_threads = omp_get_num_threads(); // number of threads
-        const auto thread_num = omp_get_thread_num();   // number of current thread
-
-        for (auto i = (1 + thread_num); i < n; i += num_threads) {
+#pragma omp for schedule(static)
+        for (auto i = 1; i < n; i++) {
             b[i] = (a[i - 1] + x) / i;
         }
     }
 
 #pragma omp parallel default(none) shared(a, b, c, x, n)
     {
-        const auto num_threads = omp_get_num_threads(); // number of threads
-        const auto thread_num = omp_get_thread_num();   // number of current thread
-
-        for (auto i = thread_num; i < n; i += num_threads) {
+#pragma omp for schedule(static)
+        for (auto i = 0; i < n; i++) {
             c[i] = i * (a[(n - 1) - i] + b[i]) / 2.0;
         }
     }
 
 #pragma omp parallel default(none) shared(a, b, c, x, n)
     {
-        const auto num_threads = omp_get_num_threads(); // number of threads
-        const auto thread_num = omp_get_thread_num();   // number of current thread
-
-        for (auto i = (1 + thread_num); i < n; i += num_threads) {
+#pragma omp for schedule(static)
+        for (auto i = 1; i < n; i++) {
             b[i] = (a[i] + c[(n - 1) - i]) / i;
         }
     }
