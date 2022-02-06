@@ -1,4 +1,4 @@
-message(STATUS "Current project: laboratory_work_2")
+project(laboratory_work_2)
 
 find_package(OpenMP REQUIRED)
 if(OPENMP_FOUND)

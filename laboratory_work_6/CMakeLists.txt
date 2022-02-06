@@ -1,4 +1,4 @@
-message(STATUS "Current project: laboratory_work_6")
+project(laboratory_work_6)
 
 find_package(MPI REQUIRED)
 if(MPI_FOUND)

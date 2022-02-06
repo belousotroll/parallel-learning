@@ -11,29 +11,12 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wunreachable-code -pedant
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-if(LAB_1)
-    add_subdirectory(laboratory_work_1)
-endif()
-
-if(LAB_2)
-    add_subdirectory(laboratory_work_2)
-endif()
-
-if(LAB_3)
-    add_subdirectory(laboratory_work_3)
-endif()
-
-if(LAB_4)
-    add_subdirectory(laboratory_work_4)
-endif()
-
-if(LAB_5)
-    add_subdirectory(laboratory_work_5)
-endif()
-
-if(LAB_6)
-    add_subdirectory(laboratory_work_6)
-endif()
+add_subdirectory(laboratory_work_1)
+add_subdirectory(laboratory_work_2)
+add_subdirectory(laboratory_work_3)
+add_subdirectory(laboratory_work_4)
+add_subdirectory(laboratory_work_5)
+add_subdirectory(laboratory_work_6)
 
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 message(STATUS "C++ Standard: ${CMAKE_CXX_STANDARD}")
