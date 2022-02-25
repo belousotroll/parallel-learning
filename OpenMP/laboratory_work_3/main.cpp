@@ -62,7 +62,7 @@ void serial_function(int x, int n)
     std::cout << "End of serial section, execution time is\t"
               << std::chrono::duration_cast<std::chrono::milliseconds>(
                   finish_time - start_time
-              ).count() << " ns\n";
+              ).count() << " ms\n";
 
     delete[] a;
     delete[] b;
@@ -122,7 +122,7 @@ void parallel_function(int x, int n)
     std::cout << "End of parallel section, execution time is\t"
               << std::chrono::duration_cast<std::chrono::milliseconds>(
                   finish_time - start_time
-              ).count() << " ns\n";
+              ).count() << " ms\n";
 
     delete[] a;
     delete[] b;
