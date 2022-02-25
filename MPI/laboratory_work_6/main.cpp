@@ -80,9 +80,10 @@ int main(int argc, char ** argv)
     if (thread_num == 0)
     {
         std::cout << "global sum: " << global_sum << '\n';
+        delete[] elements;
     }
 
-    delete[] elements;
+    delete[] chunk_buffer;
 
     MPI_Finalize();
 
