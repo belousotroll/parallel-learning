@@ -77,23 +77,14 @@ void parallel_function(int x, int n)
 
     auto start_time = std::chrono::system_clock::now();
 
-#pragma omp parallel sections default(none) shared(a, b, x, n)
-    {
-#pragma omp section
-        {
-            a[0] = 1.0 / x;
-            for (auto i = 1; i < n; i++) {
-                a[i] = std::sin(x * i);
-            }
-        }
+    a[0] = 1.0 / x;
+    for (auto i = 1; i < n; i++) {
+        a[i] = std::sin(x * i);
+    }
 
-#pragma omp section
-        {
-            b[0] = 1.0 / x;
-            for (auto i = 1; i < n; i ++) {
-                b[i] = (a[i - 1] + x) / i;
-            }
-        }
+    b[0] = 1.0 / x;
+    for (auto i = 1; i < n; i ++) {
+        b[i] = (a[i - 1] + x) / i;
     }
 
     for (auto i = 0; i < n; i++) {
