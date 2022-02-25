@@ -54,6 +54,7 @@ int main(int argc, char ** argv)
     MPI_Barrier(MPI_COMM_WORLD);
 
     MPI_Bcast(&chunk_capacity, 1, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&num_elements,   1, MPI_INT, 0, MPI_COMM_WORLD);
 
     chunk_buffer = new int[chunk_capacity];
     MPI_Scatter(elements, chunk_capacity, MPI_INT,
