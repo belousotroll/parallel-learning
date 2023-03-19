@@ -78,19 +78,23 @@ void parallel_function(int x, int n)
     auto start_time = std::chrono::system_clock::now();
 
     a[0] = 1.0 / x;
+#pragma omp parallel for
     for (auto i = 1; i < n; i++) {
         a[i] = std::sin(x * i);
     }
 
     b[0] = 1.0 / x;
+#pragma omp parallel for
     for (auto i = 1; i < n; i ++) {
         b[i] = (a[i - 1] + x) / i;
     }
 
+#pragma omp parallel for
     for (auto i = 0; i < n; i++) {
         c[i] = i * (a[(n - 1) - i] + b[i]) / 2.0;
     }
 
+#pragma omp parallel for
     for (auto i = 1; i < n; i++) {
         b[i] = (a[i] + c[(n - 1) - i]) / i;
     }
