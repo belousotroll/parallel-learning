@@ -78,8 +78,6 @@ int main(int argc, char ** argv)
                  0, MPI_COMM_WORLD);
     }
 
-    MPI_Barrier(MPI_COMM_WORLD);
-
     if (thread_num == 0) {
         for (int i = 1; i < num_threads; ++i) {
             std::cout << "receive: [ " << thread_num << " <-- " << i << " ]\n";
