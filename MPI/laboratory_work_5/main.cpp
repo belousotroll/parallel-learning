@@ -61,13 +61,8 @@ int main(int argc, char ** argv)
                 chunk_buffer, chunk_capacity, MPI_INT,
                 0, MPI_COMM_WORLD);
 
-    int chunk_size =
-        (num_elements >= (chunk_capacity * (thread_num + 1)))
-            ? chunk_capacity
-            : num_elements - chunk_capacity * thread_num;
-
     int sum = 0;
-    for (int i = 0; i < chunk_size; ++i) {
+    for (int i = 0; i < chunk_capacity; ++i) {
         sum += chunk_buffer[i];
     }
 
